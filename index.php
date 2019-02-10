@@ -30,14 +30,31 @@ Homework 3: List of Favorites
     </head>
     <body>
         <?php
-        echo "hola";
         $file = fopen("list.csv", "r");
+        $list = array();
         
         while (!feof($file))
         {
-            print_r(fgetcsv($file));
+            $csvRow = fgetcsv($file);
+            array_push($list, $csvRow);
         }
+        
         fclose($file);
         ?>
+        
+        <table>
+            <tr>
+                <th>Common Name</th>
+                <th>Scientific Name</th>
+                <th>Type</th>
+            </tr>
+            <?php foreach ($list as $line) {?>
+                <tr>
+                    <td><?php echo $line[0] ?></td>
+                    <td><?php echo $line[1] ?></td>
+                    <td><?php echo $line[2] ?></td>
+                </tr>
+            <?php } ?>
+        </table>
     </body>
 </html>
