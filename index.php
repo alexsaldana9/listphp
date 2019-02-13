@@ -13,6 +13,12 @@ Homework 3: List of Favorites
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
     <style>
+        body {
+            padding: 50px;
+        }
+        
+       
+      
       header {
         background-color: #3B5CB2;
         width:100%;
@@ -66,8 +72,9 @@ Homework 3: List of Favorites
             return $data;
         }
         ?>
+        <h2 align="center">List of favorite plants</h2>
         
-        <table>
+        <table align="center" class="table">
             <tr>
                 <th>Common Name</th>
                 <th>Scientific Name</th>
@@ -82,7 +89,9 @@ Homework 3: List of Favorites
             <?php } ?>
         </table>
         
-        <form method = "post" action = "index.php">
+        <a href="add.php"><button>Add to List</button></a>
+        
+<!--        <form method = "post" action = "index.php">
             <div class="form-row">
               <div class="form-group col-md-3">
                 <div class="form-group">
@@ -104,6 +113,6 @@ Homework 3: List of Favorites
                     <input type="submit" value="add" class="btn btn-primary">
                 </div>
             </div>
-        </form>
+        </form>-->
     </body>
 </html>
