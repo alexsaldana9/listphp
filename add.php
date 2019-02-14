@@ -6,6 +6,8 @@
         }
 </style>
 <div class="add" align="center">
+    
+    <h2>Add to List</h2>
 
  <form method = "post" action = "index.php">
             <div class="form-row">
