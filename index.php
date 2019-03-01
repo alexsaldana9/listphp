@@ -76,6 +76,7 @@ Homework 3: List of Favorites
             return $data;
         }
         ?>
+
         <h2 align="center">List of favorite plants</h2>
         
         <table align="center" class="table">
