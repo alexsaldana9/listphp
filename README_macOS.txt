@@ -15,7 +15,24 @@ To see the app in the browser: go to http://localhost
 
 http://localhost/phpmyadmin/
 
+## The user and password for phpmyadmin will be provided in the output of the terminal
 
+look for a section like this one:
+
+========================================================================
+You can now connect to this MySQL Server with 0hCzXufXk9jl
+
+    mysql -uadmin -pXXXXXXXXXX -h<host> -P<port>
+
+Please remember to change the above password as soon as possible!
+MySQL user 'root' has no password but only allows local connections
+
+enjoy!
+========================================================================
+
+
+## Database set-up
+import the favorites.sql file using phpmyadmin
 
 
 ################################ To get into the container. Not needed for this project
