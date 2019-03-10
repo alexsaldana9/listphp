@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 03, 2019 at 10:04 PM
+-- Generation Time: Mar 10, 2019 at 10:22 PM
 -- Server version: 5.7.23-0ubuntu0.16.04.1-log
 -- PHP Version: 7.2.9-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -31,12 +31,13 @@ USE `favorites`;
 --
 
 DROP TABLE IF EXISTS `plants`;
-CREATE TABLE `plants` (
-  `id` int(4) NOT NULL,
+CREATE TABLE IF NOT EXISTS `plants` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
   `common_name` varchar(128) NOT NULL,
   `sci_name` varchar(128) NOT NULL,
-  `type` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `type` varchar(128) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Truncate table before insert `plants`
@@ -44,14 +45,12 @@ CREATE TABLE `plants` (
 
 TRUNCATE TABLE `plants`;
 --
--- Indexes for dumped tables
+-- Dumping data for table `plants`
 --
 
---
--- Indexes for table `plants`
---
-ALTER TABLE `plants`
-  ADD PRIMARY KEY (`id`);
+INSERT INTO `plants` (`id`, `common_name`, `sci_name`, `type`) VALUES
+(1, 'Blue Porterweed', 'Stachytarpheta jamaicensis', 'native'),
+(2, 'Firebush', 'Hamelia patens', 'native');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

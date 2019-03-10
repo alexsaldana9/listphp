@@ -63,6 +63,7 @@ Homework 3: List of Favorites
                 <th>Common Name</th>
                 <th>Scientific Name</th>
                 <th>Type</th>
+                <th></th>
             </tr>
 
             <?php 
@@ -83,11 +84,17 @@ Homework 3: List of Favorites
                         <td>
                             <?php echo $row['type']; ?>
                         </td>
+                        <td>
+                            <a href="update.php?id=<?php echo $row['id'] ?>">Update </a> &nbsp;&nbsp;
+                            <a href="javascript:void(0);" onclick="deleteRow('<?php echo $row[id] ?>');"> Delete </a>&nbsp;&nbsp;
+                        </td>
                     </tr>
             <?php 
                 }
             ?>
         </table>
+
+         <a href="add.php"><button>Add to List</button></a>
 
         <?php 
             $result->close();

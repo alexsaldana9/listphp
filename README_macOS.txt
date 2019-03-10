@@ -20,7 +20,7 @@ http://localhost/phpmyadmin/
 look for a section like this one:
 
 ========================================================================
-You can now connect to this MySQL Server with 0hCzXufXk9jl
+You can now connect to this MySQL Server with 
 
     mysql -uadmin -pXXXXXXXXXX -h<host> -P<port>
 
@@ -30,6 +30,7 @@ MySQL user 'root' has no password but only allows local connections
 enjoy!
 ========================================================================
 
+## Update the db_connection.php file with the new password provided (docker container)
 
 ## Database set-up
 import the favorites.sql file using phpmyadmin
