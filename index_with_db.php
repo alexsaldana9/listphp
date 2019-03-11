@@ -86,7 +86,7 @@ Homework 3: List of Favorites
                         </td>
                         <td>
                             <a href="update.php?id=<?php echo $row['id'] ?>">Update </a> &nbsp;&nbsp;
-                            <a href="javascript:void(0);" onclick="deleteRow('<?php echo $row[id] ?>');"> Delete </a>&nbsp;&nbsp;
+                            <a href="delete.php?id=<?php echo $row['id'] ?>">Delete </a> &nbsp;&nbsp;
                         </td>
                     </tr>
             <?php 
