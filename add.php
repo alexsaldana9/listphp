@@ -8,21 +8,58 @@
 <div class="add" align="center">
     
     <h2>Add to List</h2>
+        <?php 
+            include 'db_connection.php';
+            
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+              $connection = OpenCon();
 
- <form method = "post" action = "index.php">
+              if ($connection->connect_error) {
+                die("Fatal Error 1"); 
+              }
+
+              $common_name = test_input($_POST["common_name"]);
+              $sci_name = test_input($_POST["sci_name"]);
+              $type = test_input($_POST["type"]);
+
+              $query  = "INSERT INTO plants (common_name, sci_name, type) VALUES ('".$common_name."','".$sci_name."','".$type."')";
+
+              
+              $result = $connection->query($query);
+
+              if (!$result) {
+                die("Fatal Error 2");
+              }
+
+              CloseCon($connection);
+
+              header("Location: index_with_db.php");
+              exit;
+            }
+
+
+            function test_input($data) {
+              $data = trim($data);
+              $data = stripslashes($data);
+              $data = htmlspecialchars($data);
+              return $data;
+            }
+        ?>  
+
+        <form method = "post" action = "add.php">
             <div class="form-row">
               <div class="form-group col-md-3">
                 <div class="form-group">
                   <label for="start_date">Common Name:</label>
-                  <input type="text" class="form-control" id="common_name" name="common_name" value="<?php echo isset($_POST["common_name"]) ? $_POST["common_name"] : ''; ?>">
+                  <input type="text" class="form-control" id="common_name" name="common_name" >
                 </div>
                 <div class="form-group">
                   <label for="start_date">Scientific Name:</label>
-                  <input type="text" class="form-control" id="sci_name" name="sci_name" value="<?php echo isset($_POST["sci_name"]) ? $_POST["sci_name"] : ''; ?>">
+                  <input type="text" class="form-control" id="sci_name" name="sci_name" >
                 </div>  
                 <div class="form-group">
                   <label for="start_date">Native or Non-native:</label>
-                  <input type="text" class="form-control" id="type" name="type" value="<?php echo isset($_POST["type"]) ? $_POST["type"] : ''; ?>">
+                  <input type="text" class="form-control" id="type" name="type" >
                 </div>
               </div> 
             </div>
