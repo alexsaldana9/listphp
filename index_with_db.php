@@ -36,6 +36,10 @@ Homework 3: List of Favorites
         border-color: #3B5CB2;
         width: 100%;
       }
+
+      .navbar {
+        background-color: lightblue;
+      }
     </style>
     </head>
     <body>
@@ -54,6 +58,17 @@ Homework 3: List of Favorites
             $rows_count = $result->num_rows;
         ?>  
 
+
+        <nav class="navbar navbar-expand-lg">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="add.php">Add</a>
+              </li>
+            </ul>
+        </nav>
 
         <h2 align="center">List of favorite plants</h2>
         
@@ -100,6 +115,10 @@ Homework 3: List of Favorites
             $result->close();
             
             CloseCon($connection);
-         ?>     
+         ?>  
+
+         <nav class="navbar fixed-bottom">
+          <a class="navbar-brand">Alexandra Saldana &#169; - List of Favorites </a>
+        </nav>   
     </body>
 </html>

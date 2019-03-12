@@ -1,11 +1,61 @@
 <?php ?>
 
-<style>
-     .add {
+<head>
+        <meta charset="UTF-8">
+        <title>List of Favorites</title>
+        
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <style>
+        body {
             padding: 50px;
         }
+        
+        
+        .scientific {
+            font-style: italic;
+        }
+       
+      
+      header {
+        background-color: #3B5CB2;
+        width:100%;
+        text-align: center;
+        border-radius: 10px;
+        top:0;
+        left:0;
+      }
+     .btn-primary {
+        background-color: #3B5CB2;
+        border-color: #3B5CB2;
+        width: 100%;
+      }
+
+      .add {
+            padding: 50px;
+
+      }
+
+      .navbar {
+        background-color: lightblue;
+      }
+
+    </head>
 </style>
 <div class="add" align="center">
+
+    <nav class="navbar navbar-expand-lg">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index_with_db.php">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Delete</a>
+        </li>
+      </ul>
+    </nav>
     
     <h2>Delete</h2>
         <?php 
@@ -79,3 +129,6 @@
             </div>
         </form>
 </div>
+<nav class="navbar fixed-bottom">
+  <a class="navbar-brand">Alexandra Saldana &#169; - List of Favorites </a>
+</nav>  
