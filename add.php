@@ -1,56 +1,22 @@
-<?php ?>
+<!DOCTYPE html>
+<html>
 <head>
         <meta charset="UTF-8">
-        <title>List of Favorites</title>
+        <title>Add</title>
         
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
-    <style>
-        body {
-            padding: 50px;
-        }
-        
-        
-        .scientific {
-            font-style: italic;
-        }
-       
-      
-      header {
-        background-color: #3B5CB2;
-        width:100%;
-        text-align: center;
-        border-radius: 10px;
-        top:0;
-        left:0;
-      }
-     .btn-primary {
-        background-color: #3B5CB2;
-        border-color: #3B5CB2;
-        width: 100%;
-      }
-
-      .add {
-            padding: 50px;
-
-      }
-
-      .navbar {
-        background-color: lightblue;
-      }
-
-    
-
-    </head>
-</style>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 <div class="add" align="center">
 
     <nav class="navbar navbar-expand-lg">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="index_with_db.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Add</a>
@@ -73,18 +39,19 @@
               $sci_name = test_input($_POST["sci_name"]);
               $type = test_input($_POST["type"]);
 
-              $query  = "INSERT INTO plants (common_name, sci_name, type) VALUES ('".$common_name."','".$sci_name."','".$type."')";
 
-              
-              $result = $connection->query($query);
+              $stmt=$connection->prepare("INSERT INTO plants (common_name, sci_name, type) VALUES (?,?,?)");
+              $stmt->bind_param("sss", $common_name, $sci_name, $type);
+              $stmt->execute();
 
-              if (!$result) {
+
+              if (!$stmt) {
                 die("Fatal Error 2");
               }
 
               CloseCon($connection);
 
-              header("Location: index_with_db.php");
+              header("Location: index.php");
               exit;
             }
 
@@ -109,7 +76,7 @@
                   <input type="text" class="form-control" id="sci_name" name="sci_name" required >
                 </div>  
                 <div class="form-group">
-                  <label for="start_date">Native or Non-native:</label>
+                  <label for="start_date">Type:</label>
                   <input type="text" class="form-control" id="type" name="type" required>
                 </div>
               </div> 
@@ -121,6 +88,9 @@
             </div>
         </form>
 </div>
+<img src="img/waterlily.jpg">
 <nav class="navbar fixed-bottom">
   <a class="navbar-brand">Alexandra Saldana &#169; - List of Favorites </a>
-</nav>  
+</nav>
+</body>
+</html>
