@@ -1,98 +1,67 @@
-<!DOCTYPE html>
-<!-- 
-Alexandra Saldana 
-Homework 3: List of Favorites
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>List of Favorites</title>
-        
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<?php include 'templates/top.php'; ?>
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="style.css" />
-
-    </head>
-    <body>
-        <?php 
-            include 'db_connection.php';
-            $connection = OpenCon();
+<?php 
+    include 'db_connection.php';
+    $connection = OpenCon();
 
 
-            if ($connection->connect_error) die("Fatal Error 1");
+    if ($connection->connect_error) die("Fatal Error 1");
 
-            $query ="SELECT * FROM plants;";
-            $result = $connection->query($query);
+    $query ="SELECT * FROM plants;";
+    $result = $connection->query($query);
 
-            if (!$result) die("Fatal Error 2");
+    if (!$result) die("Fatal Error 2");
 
-            $rows_count = $result->num_rows;
-        ?>  
+    $rows_count = $result->num_rows;
+?>  
 
+<h2 align="center">List of favorite plants</h2>
 
-        <nav class="navbar navbar-expand-lg">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="add.php">Add</a>
-              </li>
-            </ul>
-        </nav>
+<table align="center" class="table">
+    <tr>
+        <th>Id</th>
+        <th>Common Name</th>
+        <th>Scientific Name</th>
+        <th>Type</th>
+        <th></th>
+    </tr>
 
-        <h2 align="center">List of favorite plants</h2>
-        
-        <table align="center" class="table">
+    <?php 
+        for ($j = 0; $j < $rows_count; ++$j) 
+        {
+            $row = $result->fetch_assoc()
+    ?>
             <tr>
-                <th>Id</th>
-                <th>Common Name</th>
-                <th>Scientific Name</th>
-                <th>Type</th>
-                <th></th>
+                <td>
+                    <?php echo $row['id']; ?>
+                </td>
+                <td class="scientific">
+                    <?php echo $row['common_name']; ?>
+                </td>
+                <td>
+                    <?php echo $row['sci_name']; ?>
+                </td>
+                <td>
+                    <?php echo $row['type']; ?>
+                </td>
+                <td>
+                    <a href="update.php?id=<?php echo $row['id'] ?>">Update </a> &nbsp;&nbsp;
+                    <a href="delete.php?id=<?php echo $row['id'] ?>">Delete </a> &nbsp;&nbsp;
+                </td>
             </tr>
+    <?php 
+        }
+    ?>
+</table>
 
-            <?php 
-                for ($j = 0; $j < $rows_count; ++$j) 
-                {
-                    $row = $result->fetch_assoc()
-            ?>
-                    <tr>
-                        <td>
-                            <?php echo $row['id']; ?>
-                        </td>
-                        <td class="scientific">
-                            <?php echo $row['common_name']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['sci_name']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['type']; ?>
-                        </td>
-                        <td>
-                            <a href="update.php?id=<?php echo $row['id'] ?>">Update </a> &nbsp;&nbsp;
-                            <a href="delete.php?id=<?php echo $row['id'] ?>">Delete </a> &nbsp;&nbsp;
-                        </td>
-                    </tr>
-            <?php 
-                }
-            ?>
-        </table>
+<a href="add.php"><button>Add to List</button></a><br>
 
-         <a href="add.php"><button>Add to List</button></a><br>
+<?php 
+    $result->close();
+    
+    CloseCon($connection);
+?>  
 
-        <?php 
-            $result->close();
-            
-            CloseCon($connection);
-         ?>  
-         <img src="img/orchid.jpg">
+<img src="img/orchid.jpg">
 
-         <nav class="navbar fixed-bottom">
-          <a class="navbar-brand">Alexandra Saldana &#169; - List of Favorites </a>
-        </nav>   
-    </body>
-</html>
+<?php include 'templates/bottom.php'; ?>

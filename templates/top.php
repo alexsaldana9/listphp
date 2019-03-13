@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- 
+Alexandra Saldana 
+Homework 3: List of Favorites
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>List of Favorites</title>
+        
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="style.css" />
+
+    </head>
+    <body>
+    <div class="add" align="center">
+
+    <nav class="navbar navbar-expand-lg">
+		  <ul class="navbar-nav mr-auto">
+		    <li class="nav-item active">
+		      <a class="nav-link" href="index.php">Home</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="add.php">Add</a>
+		    </li>
+		  </ul>
+		</nav>
