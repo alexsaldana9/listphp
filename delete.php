@@ -72,6 +72,5 @@
     </div>
 </form>
 
-<img src="img/tulips.jpg">
 
 <?php include 'templates/bottom.php'; ?>

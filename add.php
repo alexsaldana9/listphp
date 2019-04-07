@@ -64,6 +64,4 @@
     </div>
 </form>
 
-<img src="img/waterlily.jpg">
-
 <?php include 'templates/bottom.php'; ?>

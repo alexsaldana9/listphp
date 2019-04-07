@@ -35,10 +35,10 @@
                 <td>
                     <?php echo $row['id']; ?>
                 </td>
-                <td class="scientific">
+                <td>
                     <?php echo $row['common_name']; ?>
                 </td>
-                <td>
+                <td class="scientific">
                     <?php echo $row['sci_name']; ?>
                 </td>
                 <td>
@@ -61,7 +61,5 @@
     
     CloseCon($connection);
 ?>  
-
-<img src="img/orchid.jpg">
 
 <?php include 'templates/bottom.php'; ?>

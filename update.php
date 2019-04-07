@@ -92,6 +92,4 @@
     </div>
 </form>
 
-<img src="img/platain.jpg">
-
 <?php include 'templates/bottom.php'; ?>
