@@ -18,7 +18,7 @@
       $query = "SELECT * FROM users WHERE username='".$username."' AND password ='".$password."';";
       $result = $connection->query($query);
 
-      echo $query;
+      // echo $query;
 
       if (!$result) {
         die("Fatal Error 2");
@@ -28,11 +28,17 @@
 
       CloseCon($connection);
 
-      //TODO check row has 1
-      //TODO store data in session
+      if ($row['username'] == $username){
+				//TODO check row has 1
+      	//TODO store data in session
 
-      header("Location: index.php");
-      exit;
+
+				header("Location: index.php");
+      	exit;
+      }
+      else {
+      	$errorMessage = "Login failed";
+      }      
     }
 
 
@@ -43,6 +49,8 @@
       return $data;
     }
 ?>  
+
+<?php echo $errorMessage ?>
 
 <form method = "post" action = "login.php">
     <div class="form-row">
