@@ -1,6 +1,7 @@
 <?php include 'templates/top.php'; ?>
 
 <?php 
+    include 'user_loggedin.php';
     include 'db_connection.php';
     $connection = OpenCon();
 

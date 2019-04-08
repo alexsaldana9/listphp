@@ -29,10 +29,7 @@
       CloseCon($connection);
 
       if ($row['username'] == $username){
-				//TODO check row has 1
-      	//TODO store data in session
-
-
+      	$_SESSION['username'] = $username;
 				header("Location: index.php");
       	exit;
       }
