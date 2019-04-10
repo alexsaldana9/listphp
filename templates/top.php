@@ -34,5 +34,8 @@ Homework 3: List of Favorites
 		    <li class="nav-item">
 		      <a class="nav-link" href="add.php">Add</a>
 		    </li>
+            <li class="nav-item">
+              <a class="nav-link" id="logout" href="logout.php">Logout</a>
+            </li>
 		  </ul>
 		</nav>
