@@ -5,16 +5,14 @@
     include 'db_connection.php';
     
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
-      $connection = OpenCon();
 
+    	$username = test_input($_POST["username"]);
+      $password = test_input($_POST["password"]);
+
+      $connection = OpenCon();
       if ($connection->connect_error) {
         die("Fatal Error 1"); 
       }
-
-      $username = test_input($_POST["username"]);
-      $password = test_input($_POST["password"]);
-     
-
 
       $query = "SELECT * FROM users WHERE username='".$username."' AND password =password('".$password."');";
       $result = $connection->query($query);
@@ -37,14 +35,6 @@
       else {
       	$errorMessage = "Login failed";
       }      
-    }
-
-
-    function test_input($data) {
-      $data = trim($data);
-      $data = stripslashes($data);
-      $data = htmlspecialchars($data);
-      return $data;
     }
 ?>  
 

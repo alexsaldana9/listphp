@@ -67,14 +67,6 @@ Homework 3: List of Favorites
         }
         
         fclose($file);
-                     
-        
-        function test_input($data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
         ?>
 
         <h2 align="center">List of favorite plants</h2>

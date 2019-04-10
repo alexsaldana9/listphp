@@ -32,7 +32,7 @@
         die("Fatal Error 1"); 
       }
 
-      $id = $_POST["id"];
+      $id = test_input($_POST["id"]);
 
       $stmt=$connection->prepare("DELETE FROM plants Where id=?;");
       $stmt->bind_param("i", $id);

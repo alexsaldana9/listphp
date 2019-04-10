@@ -11,7 +11,7 @@
         die("Fatal Error 1"); 
       }
 
-      $id = $_GET["id"];
+      $id = test_input($_GET["id"]);
 
       $query ="SELECT * FROM plants WHERE id=".$id.";";
       $result = $connection->query($query);
@@ -37,7 +37,7 @@
       $sci_name = test_input($_POST["sci_name"]);
       $type = test_input($_POST["type"]);
 
-      $id = $_POST["id"];
+      $id = test_input($_POST["id"]);
 
       $stmt=$connection->prepare("UPDATE plants SET common_name=?, sci_name=?, type=? WHERE id=?;");
       $stmt->bind_param("sssi", $common_name, $sci_name, $type, $id);
@@ -52,14 +52,6 @@
 
       header("Location: index.php");
       exit;
-    }
-
-
-    function test_input($data) {
-      $data = trim($data);
-      $data = stripslashes($data);
-      $data = htmlspecialchars($data);
-      return $data;
     }
 ?>  
 
