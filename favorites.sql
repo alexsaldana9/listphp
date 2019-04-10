@@ -67,8 +67,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`firstname`, `lastname`, `username`, `password`) VALUES
-('Leia', 'Sal', 'leia', '123456'),
-('misu', 'sal', 'misu456', '123456789');
+('Leia', 'Sal', 'leia', password('123456')),
+('misu', 'sal', 'misu456', password('123456789'));
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
