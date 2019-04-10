@@ -18,7 +18,7 @@
       $query = "SELECT * FROM users WHERE username='".$username."' AND password ='".$password."';";
       $result = $connection->query($query);
 
-      // echo $query;
+      //echo $query;
 
       if (!$result) {
         die("Fatal Error 2");
@@ -58,7 +58,7 @@
         </div>
         <div class="form-group">
           <label for="start_date">Password:</label>
-          <input type="text" class="form-control" id="password" name="password" required >
+          <input type="password" class="form-control" id="password" name="password" required >
         </div>  
       </div> 
     </div>
